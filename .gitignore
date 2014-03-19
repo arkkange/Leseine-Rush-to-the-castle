@@ -1,0 +1,13 @@
+#################
+# unity
+################
+
+Library/
+Temp/
+Obj/
+*.csproj
+*.pidb
+*.unityproj
+*.sln
+*.suo
+*.userprefs
