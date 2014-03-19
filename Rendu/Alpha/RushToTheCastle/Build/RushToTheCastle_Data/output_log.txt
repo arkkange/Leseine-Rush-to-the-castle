@@ -1,0 +1,57 @@
+Initialize engine version: 4.3.2f1 (0517a5ae8669)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1159]
+    Renderer: NVIDIA GeForce GTX 770M
+    Vendor:   NVIDIA
+    VRAM:     2984 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Unity Projects\RushToTheCastle\Build\RushToTheCastle_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Unity Projects\RushToTheCastle\Build\RushToTheCastle_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Unity Projects\RushToTheCastle\Build\RushToTheCastle_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Unity Projects\RushToTheCastle\Build\RushToTheCastle_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.037 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+Terrain splat 0 is null.
+ 
+(Filename:  Line: 140)
+
+Terrain splat 1 is null.
+ 
+(Filename:  Line: 140)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1699)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1699)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1699)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1699)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1699)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1699)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1699)
+
+Failed to initialize network interface. Is the listen port already in use?
+ 
+(Filename:  Line: 200)
+
