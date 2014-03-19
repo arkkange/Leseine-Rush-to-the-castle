@@ -1,0 +1,255 @@
+fileFormatVersion: 2
+guid: 06d386e61a1072a428107ca8b45f868c
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Clean_Corps
+    100002: Clean_Head
+    100004: Clean_Main D
+    100006: Clean_Main G
+    100008: Clean_Pied D
+    100010: Clean_Pied G
+    100012: //RootNode
+    400000: Clean_Corps
+    400002: Clean_Head
+    400004: Clean_Main D
+    400006: Clean_Main G
+    400008: Clean_Pied D
+    400010: Clean_Pied G
+    400012: //RootNode
+    2300000: Clean_Corps
+    2300002: Clean_Head
+    2300004: Clean_Main D
+    2300006: Clean_Main G
+    2300008: Clean_Pied D
+    2300010: Clean_Pied G
+    3300000: Clean_Corps
+    3300002: Clean_Head
+    3300004: Clean_Main D
+    3300006: Clean_Main G
+    3300008: Clean_Pied D
+    3300010: Clean_Pied G
+    4300000: Clean_Head
+    4300002: Clean_Corps
+    4300004: Clean_Main D
+    4300006: Clean_Pied D
+    4300008: Clean_Pied G
+    4300010: Clean_Main G
+    7400000: StarWalk
+    7400002: Walking
+    7400004: Walking
+    7400006: StopWalk
+    7400008: Stoped
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: StarWalk
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Clean_Corps
+        weight: 1
+      - path: Clean_Head
+        weight: 1
+      - path: Clean_Main D
+        weight: 1
+      - path: Clean_Main G
+        weight: 1
+      - path: Clean_Pied D
+        weight: 1
+      - path: Clean_Pied G
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walking
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Clean_Corps
+        weight: 1
+      - path: Clean_Head
+        weight: 1
+      - path: Clean_Main D
+        weight: 1
+      - path: Clean_Main G
+        weight: 1
+      - path: Clean_Pied D
+        weight: 1
+      - path: Clean_Pied G
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: StopWalk
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Clean_Corps
+        weight: 1
+      - path: Clean_Head
+        weight: 1
+      - path: Clean_Main D
+        weight: 1
+      - path: Clean_Main G
+        weight: 1
+      - path: Clean_Pied D
+        weight: 1
+      - path: Clean_Pied G
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Stoped
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: .100000001
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Clean_Corps
+        weight: 1
+      - path: Clean_Head
+        weight: 1
+      - path: Clean_Main D
+        weight: 1
+      - path: Clean_Main G
+        weight: 1
+      - path: Clean_Pied D
+        weight: 1
+      - path: Clean_Pied G
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 
