@@ -1,0 +1,24 @@
+précision : Tout le code ici présent et depuis sa version alpha a été réalisé par julien leseine.
+aucune ligne de code n'as été récupérée de la part de Franck Maslak.
+
+mode d'emploi des features accessibles
+
+	- pour tester le jeu, veuillez lancer le server a partir d'unity (voir bugs connus)
+
+	- mode de jeu : chariot explosif
+		1. lancer Cart_Map_Server.exe
+		2. lancer les deux clients
+		3. cliquer sur jouer sur les deux clients (le premier joueur sera bleu, le second sera rouge)
+		4. les entités player ont 2 compétences de boules de feu lancées a l'aide des touches A( petite disponibles toutes les 2 sec environs) et Z(grande toutes les 10 seconde environ)
+		
+
+	- features accessibles:
+		- les minions pop régulièrement des deux cotés equitablement
+		- ils se battent contre les joueurs quand ils les rencontrent sinon ils vont
+		pousser le chariot tout en se battant contre les minions ennemis.
+		- les joueurs peuvent se tuer entre eux et tuer les minions 
+			(ennemis & alliés inclus, ceci est voulu)
+
+	- bugs connus /!\ important /!\ (je ne parviens pas a les résoudre, j'aimerais votre aide si possible)
+		- lorsque l'on connecte un second joueur et qu'on le bouge, en local seulement, le joueur adverse bouge aussi
+		- lorsque l'on lance lity, on n'as aucun probleme de deplacement avec le joueur, en revanche si on le lance avec la version buildée, il se peux qu'il y ai des problemes de navmesh

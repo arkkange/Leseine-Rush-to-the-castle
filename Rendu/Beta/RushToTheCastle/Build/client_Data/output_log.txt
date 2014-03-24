@@ -11,18 +11,10 @@ Platform assembly: E:\Unity Projects\RushToTheCastle\Build\client_Data\Managed\U
 Loading E:\Unity Projects\RushToTheCastle\Build\client_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: E:\Unity Projects\RushToTheCastle\Build\client_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading E:\Unity Projects\RushToTheCastle\Build\client_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.037 seconds
+- Completed reload, in  0.042 seconds
 desktop: 1920x1080 59Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
-Terrain splat 0 is null.
- 
-(Filename:  Line: 140)
-
-Terrain splat 1 is null.
- 
-(Filename:  Line: 140)
-
 Failed Network.Instantiate because we are not connected.
  
 (Filename:  Line: 2458)

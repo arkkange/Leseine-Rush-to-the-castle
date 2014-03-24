@@ -20,6 +20,12 @@ public class MinionManager : MonoBehaviour {
 	#endregion
 
 	[SerializeField]
+	Transform 	_ennemi_castle_position;
+
+	[SerializeField]
+	Animator _controller;
+
+	[SerializeField]
 	AudioSource sword;
 
 	//ScriptableObject of the target
@@ -49,26 +55,36 @@ public class MinionManager : MonoBehaviour {
 				
 			sword = this.GetComponent<AudioSource>();
 			agent = this.GetComponent<NavMeshAgent>();
-			_myNetworkView = this.gameObject.GetComponent<NetworkView>(); 
+			_myNetworkView = this.gameObject.GetComponent<NetworkView>();
+
 	
 			#endregion
 
 			#region we get the minion destination's in function of the minion's color (two position around the cart)
 				if(this.tag == "Red_Minion"){
 					Cart = GameObject.Find("RedPush").transform;
+					_ennemi_castle_position = GameObject.Find("CastleBlue").transform;
 				}
 				else if(this.tag == "Blue_Minion"){
 					Cart = GameObject.Find("BluePush").transform;
+					_ennemi_castle_position = GameObject.Find("CastleRed").transform;
 				}
 				agent.destination = Cart.position; 
 				_myNetworkView.RPC("SetAgentDestination", RPCMode.Others, Cart.position);
+				_myNetworkView.RPC("SetWalkingBool", RPCMode.All, true);	//set the animator controller boolean for clients
+				
 			#endregion
 
 	}
 
-
 	// Update is called once per frame
 	void Update () {
+		#region client && server
+			if( agent.remainingDistance < 3f && _Targets.Count != 0 ){
+				_myNetworkView.RPC("SetWalkingBool", RPCMode.All, false);	//set the animator controller boolean for clients
+			}
+		#endregion
+
 		if (Network.isServer){
 
 			#region attack timer clock maj
@@ -94,36 +110,58 @@ public class MinionManager : MonoBehaviour {
 			#endregion
 
 			#region no Target set destination to Cart
-			if( _Targets.Count == 0 ){
-				agent.destination = Cart.position;
-				_myNetworkView.RPC("SetAgentDestination", RPCMode.Others, Cart.position);
-			}
-			else{
-				agent.destination = _Targets[0].position;
-				_myNetworkView.RPC("SetAgentDestination", RPCMode.Others, _Targets[0].position);
-			}
-			#endregion
 
-			#region Time to attack
-			if( (!AttackSpeedTiming) && (_Targets.Count != 0) ){		//if the attack speed timer is'nt waiting we can attack and there is a target in the list
-
-				#region if we have a Target we attack it and set position to it
-				if(_Targets.Count != 0){
-					script = _Targets[0].GetComponent<HealthManager>();			//we get the script of the target to domage him
-					script.LooseHealth( CalculatedDamages() );		//we damage him
-
-					//reset attack speed timer
-					StartAttackSpeedTimer(_AttackSpeed);
-
-					//reset position to target's one
-					agent.destination = _Targets[0].position;
-					_myNetworkView.RPC("SetAgentDestination", RPCMode.OthersBuffered, _Targets[0].position);
-
+				if( _Targets.Count == 0 ){
+					agent.destination = Cart.position;
+					_myNetworkView.RPC("SetAgentDestination", RPCMode.Others, Cart.position);
+					_myNetworkView.RPC("SetWalkingBool", RPCMode.All, true);		//set walk to true
+					_myNetworkView.RPC("SetPunchingBool", RPCMode.All, false);		//set punching to false
+					if(agent.remainingDistance < 5f){
+						this.transform.LookAt(_ennemi_castle_position.position);
+						_myNetworkView.RPC("SetLookatPosition", RPCMode.Others, _ennemi_castle_position.position);
+					}
 				}
-				#endregion
-			}
-			#endregion
+				else{
+					agent.destination = _Targets[0].position;
+					this.transform.LookAt(_Targets[0].position);
+					_myNetworkView.RPC("SetLookatPosition", RPCMode.Others, _Targets[0].position);
+					_myNetworkView.RPC("SetAgentDestination", RPCMode.Others, _Targets[0].position);
 
+					if(agent.remainingDistance < 3f){
+						_myNetworkView.RPC("SetWalkingBool", RPCMode.All, false);	//set walk to false
+					}
+					else{
+						_myNetworkView.RPC("SetWalkingBool", RPCMode.All, true);	//set walk to true
+					}
+				}
+
+			#endregion
+			#region Time to attack
+				if( (!AttackSpeedTiming) && (_Targets.Count != 0) ){		//if the attack speed timer is'nt waiting we can attack and there is a target in the list
+
+					#region if we have a Target we attack it and set position to it
+
+							if(agent.remainingDistance < 2.5f){
+								
+								script = _Targets[0].GetComponent<HealthManager>();			//we get the script of the target to domage him
+								if(script){
+									script.LooseHealth( CalculatedDamages() );					//we damage him
+									StartAttackSpeedTimer(_AttackSpeed);						//reset attack speed timer
+								}
+								_myNetworkView.RPC("SetWalkingBool", RPCMode.All, false);	//set walk to false
+								_myNetworkView.RPC("SetPunchingBool", RPCMode.All, true);
+							}
+							else{
+								_myNetworkView.RPC("SetWalkingBool", RPCMode.All, true);	//set walk to true
+							}
+
+							//reset position to target's one
+							agent.destination = _Targets[0].position;
+							_myNetworkView.RPC("SetAgentDestination", RPCMode.OthersBuffered, _Targets[0].position);
+
+					#endregion
+				}
+			#endregion
 		}
 	}
 
@@ -196,10 +234,26 @@ public class MinionManager : MonoBehaviour {
 	
 
 	#region RPC
-
+		
+		// NavMesh mesh destination setter
 		[RPC]
 		void SetAgentDestination( Vector3 _newPosition ){
 			agent.destination = _newPosition;
+		}
+
+		//animation controlls
+		[RPC]
+		void SetWalkingBool( bool walking ) {
+			_controller.SetBool("IsWalking", walking);	//set the animation bool to moove
+		}
+		[RPC]
+		void SetPunchingBool ( bool punch ){
+		_controller.SetBool("IsPunching", punch);
+		}
+
+		[RPC]
+		void SetLookatPosition(Vector3 _position){
+			this.transform.LookAt(_position);	//minion look at castle
 		}
 
 	#endregion

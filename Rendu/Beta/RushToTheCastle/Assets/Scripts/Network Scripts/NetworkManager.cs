@@ -76,7 +76,7 @@ public class NetworkManager : MonoBehaviour {
 
 				Network.InitializeSecurity();
 				Network.InitializeServer(2, 25000, true);
-				Network.maxConnections = 10;
+				Network.maxConnections = 2;				
 			}
 			else
 			{
@@ -94,14 +94,14 @@ public class NetworkManager : MonoBehaviour {
 	{	
 		// set camer'as position to the spawn
 		if( (Network.connections.Length%2) == 1){	//if last conection's blue team
-			_camera.position = new Vector3(125, 30, 80);
+			_camera.position = new Vector3(150, 30, 80);
 		}
 		else{										//if last conection's red team
-			_camera.position = new Vector3(17, 30, 370);
+			_camera.position = new Vector3(150, 30, 370);
+
 		}
 
 	}
-
 	
 	void OnPlayerConnected(NetworkPlayer player)
 	{	
@@ -112,6 +112,8 @@ public class NetworkManager : MonoBehaviour {
 			_myNetworkView.RPC("ChangePlayerPrefabTag", RPCMode.All, tag);
 			GameObject newplayer = Network.Instantiate(_PlayerPrefab, _positionPlayer1_blue.position ,_positionPlayer1_blue.rotation,0) as GameObject;
 			PlayerList.Add(player , newplayer);
+
+
 		}
 		if (Network.connections.Length == 2)
 		{
@@ -178,6 +180,8 @@ public class NetworkManager : MonoBehaviour {
 			PlayerList.Add(player , newplayer);
 		}
 
+		_myNetworkView.RPC("Pause", RPCMode.All );
+
 	}
 
 	[RPC]
@@ -189,4 +193,15 @@ public class NetworkManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	[RPC]
+	void Pause(){
+		if(Time.timeScale != 0){
+			Time.timeScale = 0;
+		}
+		else{
+			Time.timeScale = 1;
+		}
+	}
+	
 }

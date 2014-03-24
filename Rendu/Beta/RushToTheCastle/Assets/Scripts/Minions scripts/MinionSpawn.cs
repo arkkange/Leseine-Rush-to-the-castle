@@ -5,7 +5,10 @@ public class MinionSpawn : MonoBehaviour {
 
 
 	[SerializeField]
-	public Transform MinionPrefab;
+	public Transform Blue_Minion_Prefab;
+
+	[SerializeField]
+	public Transform Red_Minion_Prefab;
 	
 	[SerializeField]
 	public Transform MinionSpawnPoint;
@@ -41,27 +44,26 @@ public class MinionSpawn : MonoBehaviour {
 
 	}
 
-
-	//timer
-	bool _MinionSpawnTimer = false;
-	double _countdown;
-	void StartMinionSpawnTimer(double time)
-	{
-		_MinionSpawnTimer = true;
-		_countdown = time;
-	}
+	#region clock
+		//timer
+		bool _MinionSpawnTimer = false;
+		double _countdown;
+		void StartMinionSpawnTimer(double time)
+		{
+			_MinionSpawnTimer = true;
+			_countdown = time;
+		}
+	#endregion
 
 	
 	void SpawnMinion()
 	{
 		if(Network.isServer){
 			if(this.tag == "Lair_Red"){
-				MinionPrefab.tag = "Red_Minion";
-				Network.Instantiate(MinionPrefab, MinionSpawnPoint.position, MinionSpawnPoint.rotation, 0);
+				Network.Instantiate(Red_Minion_Prefab, MinionSpawnPoint.position, MinionSpawnPoint.rotation, 0);
 			}
 			if(this.tag == "Lair_Blue"){
-				MinionPrefab.tag = "Blue_Minion";
-				Network.Instantiate(MinionPrefab, MinionSpawnPoint.position, MinionSpawnPoint.rotation, 0);
+				Network.Instantiate(Blue_Minion_Prefab, MinionSpawnPoint.position, MinionSpawnPoint.rotation, 0);
 			}
 		}
 
